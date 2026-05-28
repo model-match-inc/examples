@@ -18,13 +18,7 @@ export function Login({ onLogout }: { onLogout: () => void }) {
     sessionStorage.setItem(STORAGE.STATE, state);
 
     const url = await oauth.createAuthorizationUrl({
-      scopes: [
-        "openid",
-        "profile",
-        "email",
-        "market-insights:read",
-        "property-enrichment:run",
-      ],
+      scopes: ["openid", "profile", "email", "market-insights:read"],
       state,
       codeChallenge: pkce.codeChallenge,
       codeChallengeMethod: "S256",
@@ -39,11 +33,11 @@ export function Login({ onLogout }: { onLogout: () => void }) {
     <div>
       <p style={{ lineHeight: 1.6, color: "#c2cae6" }}>
         This is a single-page app with <strong>no backend</strong>. We can't
-        store a <code>client_secret</code> here — anyone could open DevTools
-        and steal it. Instead we use <strong>PKCE</strong>: a one-time
-        random secret generated in your browser, hashed, and sent to the
-        issuer. Only your browser knows the original value, so only your
-        browser can complete the token exchange.
+        store a <code>client_secret</code> here — anyone could open DevTools and
+        steal it. Instead we use <strong>PKCE</strong>: a one-time random secret
+        generated in your browser, hashed, and sent to the issuer. Only your
+        browser knows the original value, so only your browser can complete the
+        token exchange.
       </p>
 
       {accessToken ? (
@@ -104,8 +98,8 @@ export function Login({ onLogout }: { onLogout: () => void }) {
 
       <ol style={{ marginTop: 40, color: "#9ba6cf", lineHeight: 1.7 }}>
         <li>
-          <code>createPKCE()</code> → makes a random <code>codeVerifier</code>{" "}
-          + <code>codeChallenge = SHA256(codeVerifier)</code>.
+          <code>createPKCE()</code> → makes a random <code>codeVerifier</code> +{" "}
+          <code>codeChallenge = SHA256(codeVerifier)</code>.
         </li>
         <li>
           We stash the <code>codeVerifier</code> in <code>sessionStorage</code>{" "}
@@ -118,9 +112,9 @@ export function Login({ onLogout }: { onLogout: () => void }) {
         <li>
           We POST <code>{`{ code, code_verifier }`}</code> to{" "}
           <code>/token</code>. The server hashes the verifier and checks it
-          matches the challenge it saw earlier — proving the same browser
-          that started the flow is finishing it. <strong>No secret was ever
-          shared.</strong>
+          matches the challenge it saw earlier — proving the same browser that
+          started the flow is finishing it.{" "}
+          <strong>No secret was ever shared.</strong>
         </li>
       </ol>
     </div>

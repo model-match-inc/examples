@@ -15,9 +15,8 @@ import { createServerFn } from "@tanstack/react-start";
  * client. So we do both.
  */
 const startLoginFn = createServerFn({ method: "POST" }).handler(async () => {
-  const { getOAuth, COOKIE_OAUTH_STATE, COOKIE_PKCE_VERIFIER } = await import(
-    "~/lib/oauth.server"
-  );
+  const { getOAuth, COOKIE_OAUTH_STATE, COOKIE_PKCE_VERIFIER } =
+    await import("~/lib/oauth.server");
   const { setCookie } = await import("@tanstack/react-start/server");
   const { createPKCE } = await import("@model-match/oauth");
 
@@ -37,13 +36,7 @@ const startLoginFn = createServerFn({ method: "POST" }).handler(async () => {
   setCookie(COOKIE_PKCE_VERIFIER, pkce.codeVerifier, cookieOpts);
 
   const url = await oauth.createAuthorizationUrl({
-    scopes: [
-      "openid",
-      "profile",
-      "email",
-      "market-insights:read",
-      "property-enrichment:run",
-    ],
+    scopes: ["openid", "profile", "email", "market-insights:read"],
     state,
     codeChallenge: pkce.codeChallenge,
     codeChallengeMethod: "S256",
@@ -69,9 +62,9 @@ function Home() {
     <div>
       <p style={{ lineHeight: 1.6, color: "#c2cae6" }}>
         Click the button below to kick off an OAuth Authorization Code flow.
-        Because this app has a backend, we use a <strong>confidential client</strong>:
-        the <code>client_secret</code> lives on the server and is used to
-        authenticate the token exchange.
+        Because this app has a backend, we use a{" "}
+        <strong>confidential client</strong>: the <code>client_secret</code>{" "}
+        lives on the server and is used to authenticate the token exchange.
       </p>
 
       <button
@@ -105,9 +98,8 @@ function Home() {
         </li>
         <li>
           The callback server route swaps the <code>code</code> for an{" "}
-          <code>access_token</code> using <code>client_secret</code>, stores
-          the token in an httpOnly cookie, and sends you to{" "}
-          <code>/dashboard</code>.
+          <code>access_token</code> using <code>client_secret</code>, stores the
+          token in an httpOnly cookie, and sends you to <code>/dashboard</code>.
         </li>
       </ol>
     </div>
