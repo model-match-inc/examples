@@ -11,7 +11,7 @@ export function getOAuth() {
   const clientId = process.env.MODEL_MATCH_CLIENT_ID;
   const clientSecret = process.env.MODEL_MATCH_CLIENT_SECRET;
   const issuer =
-    process.env.MODEL_MATCH_ISSUER ?? "https://auth.modelmatch.com";
+    process.env.MODEL_MATCH_ISSUER ?? "https://auth.modelmatch.com/api/auth";
   const redirectUri =
     process.env.MODEL_MATCH_REDIRECT_URI ??
     "http://localhost:3000/oauth/callback";
