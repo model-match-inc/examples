@@ -2,7 +2,8 @@ import { createOAuthClient } from "@model-match/oauth";
 
 const clientId = import.meta.env.VITE_MODEL_MATCH_CLIENT_ID;
 const issuer =
-  import.meta.env.VITE_MODEL_MATCH_ISSUER ?? "https://auth.modelmatch.com";
+  import.meta.env.VITE_MODEL_MATCH_ISSUER ??
+  "https://auth.modelmatch.com/api/auth";
 const redirectUri =
   import.meta.env.VITE_MODEL_MATCH_REDIRECT_URI ??
   `${window.location.origin}/oauth/callback`;
