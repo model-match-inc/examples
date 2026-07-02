@@ -5,7 +5,7 @@ built on top of [`@model-match/oauth`](https://www.npmjs.com/package/@model-matc
 and [`@model-match/api`](https://www.npmjs.com/package/@model-match/api).
 
 > **Full Model Match developer docs:**
-> [docs.modelmatch.co/developers](https://docs.modelmatch.co/developers)
+> [docs.modelmatch.com/developers](https://docs.modelmatch.com/developers)
 
 | App | Flow | Where the secret lives | Use this when… |
 | --- | --- | --- | --- |
@@ -61,7 +61,7 @@ README.
 ## Prereqs
 
 1. A Model Match OAuth application registered (see
-   [docs.modelmatch.co/developers](https://docs.modelmatch.co/developers)).
+   [docs.modelmatch.com/developers](https://docs.modelmatch.com/developers)).
    You'll need:
    - `client_id` (both apps)
    - `client_secret` (confidential app only)
@@ -75,6 +75,6 @@ README.
 
 ## Further reading
 
-- **Developer docs** — [docs.modelmatch.co/developers](https://docs.modelmatch.co/developers)
+- **Developer docs** — [docs.modelmatch.com/developers](https://docs.modelmatch.com/developers)
 - **`@model-match/oauth`** — [npm](https://www.npmjs.com/package/@model-match/oauth) — the OAuth helper used by both apps
 - **`@model-match/api`** — [npm](https://www.npmjs.com/package/@model-match/api) — the typed REST client

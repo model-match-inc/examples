@@ -3,7 +3,7 @@
 A pure-browser React app (Vite + React 19, no backend) that signs in with
 Model Match using the **Authorization Code + PKCE** flow.
 
-> Full Model Match developer docs: [docs.modelmatch.co/developers](https://docs.modelmatch.co/developers)
+> Full Model Match developer docs: [docs.modelmatch.com/developers](https://docs.modelmatch.com/developers)
 
 ## Why PKCE?
 

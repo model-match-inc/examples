@@ -3,7 +3,7 @@
 A tiny TanStack Start app that signs in with Model Match using a
 **`client_id` + `client_secret`** (a.k.a. a "confidential" OAuth client).
 
-> Full Model Match developer docs: [docs.modelmatch.co/developers](https://docs.modelmatch.co/developers)
+> Full Model Match developer docs: [docs.modelmatch.com/developers](https://docs.modelmatch.com/developers)
 
 ## Why confidential?
 
