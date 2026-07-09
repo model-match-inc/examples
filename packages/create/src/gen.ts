@@ -45,17 +45,17 @@ const FRAMEWORK_BUILD: Record<TemplateManifest["framework"], { command: string; 
 };
 
 /**
- * Vercel deploy-button URL. Carries the whole spec in query params, so a
- * monorepo subdir works via `root-directory` + a `/tree/<branch>/<dir>` URL.
- * Secrets are listed in `env` (deployer must fill them) but never in
- * `envDefaults` — the URL lands in browser history.
+ * Vercel deploy-button URL. The monorepo subdir is encoded ENTIRELY in
+ * `repository-url` as `/tree/<branch>/<dir>` — Vercel has no `root-directory`
+ * query param, and adding one double-applies the path ("couldn't find the
+ * source code"). Secrets are listed in `env` (deployer must fill them) but
+ * never in `envDefaults` — the URL lands in browser history.
  */
 export function vercelDeployUrl(m: TemplateManifest, repo: RepoConfig = DEFAULT_REPO): string {
   const url = new URL("https://vercel.com/new/clone");
   const p = url.searchParams;
   const slug = slugFor(m);
   p.set("repository-url", `https://github.com/${repo.githubRepo}/tree/${repo.branch}/${m.dir}`);
-  p.set("root-directory", m.dir);
   p.set("project-name", `mm-${slug}`);
   p.set("repository-name", `mm-${slug}`);
 
