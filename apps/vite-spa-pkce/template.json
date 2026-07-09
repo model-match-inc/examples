@@ -1,0 +1,36 @@
+{
+  "name": "Vite SPA (PKCE)",
+  "slug": "vite-spa-pkce",
+  "description": "Public OAuth client using Authorization Code + PKCE. No secret — for browser/mobile/CLI apps.",
+  "framework": "vite",
+  "auth": "oauth",
+  "dir": "apps/vite-spa-pkce",
+  "variables": [
+    {
+      "key": "VITE_MODEL_MATCH_CLIENT_ID",
+      "label": "OAuth client ID",
+      "scope": "build",
+      "help": "A public OAuth client — there is NO secret. This value is inlined into the browser bundle, which is fine for a PKCE client."
+    },
+    {
+      "key": "VITE_MODEL_MATCH_ISSUER",
+      "label": "OAuth issuer base URL",
+      "scope": "build",
+      "default": "https://auth.modelmatch.com/api/auth",
+      "help": "The SDK appends /oauth2/authorize and /oauth2/token to this value. Point it at the auth base, NOT the bare host (the bare host 404s — endpoints live under /api/auth)."
+    },
+    {
+      "key": "VITE_MMR_API_URL",
+      "label": "Model Match REST API base URL",
+      "scope": "build",
+      "default": "https://api.modelmatch.com"
+    },
+    {
+      "key": "VITE_MODEL_MATCH_REDIRECT_URI",
+      "label": "OAuth redirect URI",
+      "scope": "build",
+      "default": "http://localhost:5173/oauth/callback",
+      "help": "Must exactly match the redirect URI registered with your OAuth app."
+    }
+  ]
+}

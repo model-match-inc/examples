@@ -1,0 +1,36 @@
+{
+  "name": "Year in Review (Wrapped)",
+  "slug": "wrapped",
+  "description": "A Spotify-Wrapped-style year-in-review for a loan originator, by NMLS ID. Server-rendered so the API key never reaches the browser.",
+  "framework": "tanstack-start",
+  "auth": "api-key",
+  "dir": "apps/wrapped",
+  "build": { "publish": "dist" },
+  "variables": [
+    {
+      "key": "MODEL_MATCH_API_KEY",
+      "label": "Model Match API key",
+      "scope": "server",
+      "secret": true,
+      "help": "Create one in the Model Match dashboard. Sent as the x-api-key header, server-side only — it is never exposed to the browser."
+    },
+    {
+      "key": "MODEL_MATCH_NMLS_ID",
+      "label": "Originator NMLS ID to feature",
+      "scope": "server",
+      "help": "The loan originator whose year gets wrapped (e.g. 1036297)."
+    },
+    {
+      "key": "MMR_API_URL",
+      "label": "Model Match REST API base URL",
+      "scope": "server",
+      "default": "https://api.modelmatch.com"
+    },
+    {
+      "key": "REPORT_YEAR",
+      "label": "Year to review",
+      "scope": "server",
+      "default": "2025"
+    }
+  ]
+}

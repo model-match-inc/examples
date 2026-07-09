@@ -1,0 +1,43 @@
+{
+  "name": "TanStack Start (confidential)",
+  "slug": "tanstack-confidential",
+  "description": "Authorization Code with a client_secret kept server-side. For apps that have a backend.",
+  "framework": "tanstack-start",
+  "auth": "oauth",
+  "dir": "apps/tanstack-confidential",
+  "build": { "publish": "dist" },
+  "variables": [
+    {
+      "key": "MODEL_MATCH_ISSUER",
+      "label": "OAuth issuer base URL",
+      "scope": "server",
+      "default": "https://auth.modelmatch.com/api/auth",
+      "help": "The SDK appends /oauth2/authorize and /oauth2/token to this value. Point it at the auth base, NOT the bare host (the bare host 404s — endpoints live under /api/auth)."
+    },
+    {
+      "key": "MMR_API_URL",
+      "label": "Model Match REST API base URL",
+      "scope": "server",
+      "default": "https://api.modelmatch.com"
+    },
+    {
+      "key": "MODEL_MATCH_CLIENT_ID",
+      "label": "OAuth client ID",
+      "scope": "server"
+    },
+    {
+      "key": "MODEL_MATCH_CLIENT_SECRET",
+      "label": "OAuth client secret",
+      "scope": "server",
+      "secret": true,
+      "help": "NEVER prefix this with VITE_ — it must never reach the browser bundle."
+    },
+    {
+      "key": "MODEL_MATCH_REDIRECT_URI",
+      "label": "OAuth redirect URI",
+      "scope": "server",
+      "default": "http://localhost:3000/oauth/callback",
+      "help": "Must exactly match the redirect URI registered with your OAuth app."
+    }
+  ]
+}

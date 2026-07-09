@@ -1,0 +1,17 @@
+{
+  "name": "@model-match/examples-monorepo",
+  "private": true,
+  "type": "module",
+  "description": "Model Match API example apps + the tooling that scaffolds and deploys them.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "gen": "node scripts/gen.ts",
+    "build": "npm run build -w @model-match/create",
+    "typecheck": "npm run typecheck -w @model-match/create"
+  },
+  "engines": {
+    "node": ">=22.6"
+  }
+}

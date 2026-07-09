@@ -1,0 +1,41 @@
+{
+  "name": "@model-match/create",
+  "version": "0.1.0",
+  "description": "Scaffold and deploy Model Match API example apps.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "create-model-match": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./gen": {
+      "types": "./dist/gen.d.ts",
+      "import": "./dist/gen.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.5.1",
+    "giget": "^2.0.0",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
